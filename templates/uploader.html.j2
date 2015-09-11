@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Freckles sharing site">
+  <meta name="author" content="Pamela Lillian Isley">
+  <title>Freckles | Share your own</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container">
+    <div class="text-center jumbotron">
+      <h2>Freckles storage</h2>
+      <div class="alert alert-warning">
+        This storage is <strong>temporary</strong>. Don't use it for your backups.
+      </div>
+      <p>
+      <form role="form" class="form-inline" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <input class="form-control btn-default" type="file" name="file" />
+          will be accessible
+          <select class="form-control btn-default bootstrap-select" name="countdown">
+{% for opt in range(e_min, e_max) %}
+    {% if opt == e_def %}
+            <option selected="selected" value="{{opt}}">{{opt}}</option>
+    {% else %}
+            <option value="{{opt}}">{{opt}}</option>
+    {% endif %}
+{% endfor %}
+          </select>
+          times or less. <br />
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-default" role="button" value="Upload" />
+        </div>
+      </form>
+      </p>
+    </div>
+    <footer class="footer">
+      <div class="text-right col-lg-12">
+        Code is on 
+        <a target="_blank" href="https://github.com/the-mandarine/freckles">GitHub</a>.
+      </div>
+    </footer>
+  </div> <!-- /container -->
+</body>
+</html>
